@@ -61,7 +61,7 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="hero-gradient text-white py-20 md:py-32">
+        <section class="hero-gradient text-white py-20 md:py-32 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%), @if(file_exists(public_path('images/profile.jpg'))) url('{{ asset('images/profile.jpg') }}') @elseif(file_exists(public_path('images/profile.png'))) url('{{ asset('images/profile.png') }}') @endif; background-size: cover; background-position: center; background-blend-mode: overlay;">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-fade-in">
@@ -73,9 +73,23 @@
                         </div>
                     </div>
                     <div class="hidden md:block text-center">
-                        <div class="w-64 h-64 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-code text-8xl opacity-50"></i>
-                        </div>
+                        @if($about && $about->profile_image)
+                            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                                <img src="{{ asset('storage/' . $about->profile_image) }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
+                            </div>
+                        @elseif(file_exists(public_path('images/profile.jpg')))
+                            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                                <img src="{{ asset('images/profile.jpg') }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
+                            </div>
+                        @elseif(file_exists(public_path('images/profile.png')))
+                            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                                <img src="{{ asset('images/profile.png') }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
+                            </div>
+                        @else
+                            <div class="w-64 h-64 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-8xl opacity-50"></i>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -89,6 +103,19 @@
                 
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="md:col-span-2">
+                        @if($about && $about->profile_image)
+                            <div class="mb-8">
+                                <img src="{{ asset('storage/' . $about->profile_image) }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
+                            </div>
+                        @elseif(file_exists(public_path('images/profile.jpg')))
+                            <div class="mb-8">
+                                <img src="{{ asset('images/profile.jpg') }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
+                            </div>
+                        @elseif(file_exists(public_path('images/profile.png')))
+                            <div class="mb-8">
+                                <img src="{{ asset('images/profile.png') }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
+                            </div>
+                        @endif
                         <p class="text-lg text-gray-700 leading-relaxed mb-6">{{ $about->bio ?? 'Full-stack developer passionate about creating beautiful web applications.' }}</p>
                         <div class="grid grid-cols-2 gap-6 mt-8">
                             <div class="bg-blue-50 p-6 rounded-lg">
