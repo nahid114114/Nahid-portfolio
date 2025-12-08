@@ -52,8 +52,9 @@
                     <div class="hidden md:flex space-x-8">
                         <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
                         <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-                        <a href="#education" class="text-gray-700 hover:text-blue-600 transition">Education</a> {{-- NEW LINK --}}
+                        <a href="#education" class="text-gray-700 hover:text-blue-600 transition">Education</a>
                         <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+                        <a href="#sports" class="text-gray-700 hover:text-blue-600 transition">Sports</a>
                         <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
                     </div>
                 </div>
@@ -258,6 +259,116 @@
             </div>
         </section>
 
+        <!-- Sports & Achievements Section -->
+        <section id="sports" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Sports & Achievements</h3>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mb-12"></div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Football -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover animate-fade-in border-l-4 border-green-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-futbol text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">Football</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Daffodil International University & YKSG-1 Hall</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-trophy text-yellow-500 mt-1"></i>
+                                <span><strong>Runner-up</strong>, Hall Football Tournaments – 2024 & 2025</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-star text-yellow-500 mt-1"></i>
+                                <span><strong>Top Scorer</strong>, Hall Football Tournament – 2024</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-medal text-yellow-500 mt-1"></i>
+                                <span><strong>Runner-up & "Man of the Tournament"</strong>, CSE Fest Football Tournament – 2023</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-calendar-alt text-blue-500 mt-1"></i>
+                                <span><strong>Organizer</strong>, 5 Hall Tournaments (Football & Cricket)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cricket -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover animate-fade-in border-l-4 border-blue-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-baseball-ball text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">Cricket</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Daffodil International University & YKSG-1 Hall</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-trophy text-yellow-500 mt-1"></i>
+                                <span><strong>Champion</strong>, Inter-Department Cricket Tournament – 2022</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-star text-yellow-500 mt-1"></i>
+                                <span><strong>Multiple "Man of the Match"</strong>, Hall Cricket Tournaments</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-calendar-alt text-blue-500 mt-1"></i>
+                                <span>Active participation: 2022, 2023, 2024, 2025</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Badminton -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover animate-fade-in border-l-4 border-purple-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-table-tennis text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">Badminton</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Bangladesh Navy School & College, Khulna</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-trophy text-yellow-500 mt-1"></i>
+                                <span><strong>School & College Champion</strong> – 2019, 2020</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Other Sports -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover animate-fade-in border-l-4 border-indigo-500 md:col-span-2 lg:col-span-3">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-running text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">Other Sports</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">I actively participate in various indoor and outdoor sports</p>
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 font-medium">Table Tennis</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 font-medium">Carrom</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 font-medium">Indoor Sports</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 font-medium">Outdoor Sports</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -385,8 +496,9 @@
                         <ul class="space-y-2 text-gray-400">
                             <li><a href="#about" class="hover:text-white transition">About</a></li>
                             <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
-                            <li><a href="#education" class="hover:text-white transition">Education</a></li> {{-- NEW LINK --}}
+                            <li><a href="#education" class="hover:text-white transition">Education</a></li>
                             <li><a href="#skills" class="hover:text-white transition">Skills</a></li>
+                            <li><a href="#sports" class="hover:text-white transition">Sports</a></li>
                         </ul>
                     </div>
                     <div>
