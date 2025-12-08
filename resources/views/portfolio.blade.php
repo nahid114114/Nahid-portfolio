@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nahid's Portfolio</title>
+    <title>Md. Nahid Hasan - AI & ML Research Enthusiast</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js"></script>
@@ -47,7 +47,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Nahid</h1>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Md. Nahid Hasan</h1>
                     </div>
                     <div class="hidden md:flex space-x-8">
                         <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
@@ -65,8 +65,8 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-fade-in">
-                        <h2 class="text-5xl md:text-6xl font-bold mb-6">Hi, I'm Nahid</h2>
-                        <p class="text-xl text-gray-100 mb-8">Full-stack web developer building beautiful and functional web applications with modern technologies.</p>
+                        <h2 class="text-5xl md:text-6xl font-bold mb-6">Hi, I'm Md. Nahid Hasan</h2>
+                        <p class="text-xl text-gray-100 mb-8">AI & ML Research Enthusiast | Flutter Developer | Passionate about Healthcare Technology & Data Privacy</p>
                         <div class="flex gap-4">
                             <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Get In Touch</a>
                             <a href="#projects" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">View Work</a>
@@ -99,17 +99,25 @@
                             <div class="bg-purple-50 p-6 rounded-lg">
                                 <i class="fas fa-envelope text-3xl text-purple-600 mb-3"></i>
                                 <h4 class="font-semibold text-gray-900">Email</h4>
-                                <p class="text-gray-600"><a href="mailto:{{ $about->email ?? 'hello@nahid.dev' }}" class="text-purple-600 hover:underline">{{ $about->email ?? 'hello@nahid.dev' }}</a></p>
+                                <p class="text-gray-600"><a href="mailto:{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}" class="text-purple-600 hover:underline">{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}</a></p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-900 mb-4">Connect With Me</h4>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/nahid114" target="_blank" class="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition flex items-center gap-2">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-lg h-fit">
                         <h4 class="text-xl font-bold text-gray-900 mb-4">Quick Facts</h4>
                         <ul class="space-y-3 text-gray-700">
-                            <li><i class="fas fa-check text-green-500 mr-3"></i>5+ Years Experience</li>
-                            <li><i class="fas fa-check text-green-500 mr-3"></i>50+ Projects Completed</li>
-                            <li><i class="fas fa-check text-green-500 mr-3"></i>Full-Stack Developer</li>
-                            <li><i class="fas fa-check text-green-500 mr-3"></i>Always Learning</li>
+                            <li><i class="fas fa-check text-green-500 mr-3"></i>AI & ML Research Enthusiast</li>
+                            <li><i class="fas fa-check text-green-500 mr-3"></i>Flutter Developer</li>
+                            <li><i class="fas fa-check text-green-500 mr-3"></i>Published Researcher (IEEE)</li>
+                            <li><i class="fas fa-check text-green-500 mr-3"></i>Healthcare Technology Focus</li>
                         </ul>
                     </div>
                 </div>
@@ -346,19 +354,19 @@
                     <div>
                         <h4 class="font-semibold mb-4">Follow</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li><a href="#" class="hover:text-white transition">GitHub</a></li>
+                            <li><a href="https://github.com/nahid114" target="_blank" class="hover:text-white transition">GitHub</a></li>
                             <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
                             <li><a href="#" class="hover:text-white transition">Twitter</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="font-semibold mb-4">Contact</h4>
-                        <p class="text-gray-400">hello@nahid.dev</p>
-                        <p class="text-gray-400">+1 (555) 123-4567</p>
+                        <p class="text-gray-400">{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}</p>
+                        <p class="text-gray-400">{{ $about->location ?? 'Dhaka, Bangladesh' }}</p>
                     </div>
                 </div>
                 <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                    <p>&copy; 2025 Nahid's Portfolio. All rights reserved.</p>
+                    <p>&copy; 2025 Md. Nahid Hasan. All rights reserved.</p>
                 </div>
             </div>
         </footer>
