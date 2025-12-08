@@ -1,4 +1,4 @@
-// app/Models/Education.php
+<?php
 
 namespace App\Models;
 
