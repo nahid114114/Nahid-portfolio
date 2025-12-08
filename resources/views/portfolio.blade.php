@@ -61,7 +61,21 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="hero-gradient text-white py-20 md:py-32 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%), @if(file_exists(public_path('images/profile.jpg'))) url('{{ asset('images/profile.jpg') }}') @elseif(file_exists(public_path('images/profile.png'))) url('{{ asset('images/profile.png') }}') @endif; background-size: cover; background-position: center; background-blend-mode: overlay;">
+        @php
+            $heroBgImg = null;
+            if (file_exists(public_path('images/profile.jpg'))) {
+                $heroBgImg = asset('images/profile.jpg');
+            } elseif (file_exists(public_path('images/profile.png'))) {
+                $heroBgImg = asset('images/profile.png');
+            } elseif ($about && $about->profile_image) {
+                if (file_exists(storage_path('app/public/' . $about->profile_image))) {
+                    $heroBgImg = asset('storage/' . $about->profile_image);
+                } elseif (file_exists(public_path('storage/' . $about->profile_image))) {
+                    $heroBgImg = asset('storage/' . $about->profile_image);
+                }
+            }
+        @endphp
+        <section class="hero-gradient text-white py-20 md:py-32 relative overflow-hidden" style="background: @if($heroBgImg)linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%), url('{{ $heroBgImg }}')@else linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)@endif; background-size: cover; background-position: center; background-blend-mode: overlay;">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-fade-in">
@@ -73,21 +87,29 @@
                         </div>
                     </div>
                     <div class="hidden md:block text-center">
-                        @if($about && $about->profile_image)
+                        @php
+                            $profileImg = null;
+                            $imgPath = public_path('images/profile.jpg');
+                            $imgPathPng = public_path('images/profile.png');
+                            
+                            if (file_exists($imgPath)) {
+                                $profileImg = asset('images/profile.jpg');
+                            } elseif (file_exists($imgPathPng)) {
+                                $profileImg = asset('images/profile.png');
+                            } elseif ($about && $about->profile_image) {
+                                $profileImg = asset('storage/' . $about->profile_image);
+                            }
+                        @endphp
+                        @if($profileImg)
                             <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                                <img src="{{ asset('storage/' . $about->profile_image) }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
-                            </div>
-                        @elseif(file_exists(public_path('images/profile.jpg')))
-                            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                                <img src="{{ asset('images/profile.jpg') }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
-                            </div>
-                        @elseif(file_exists(public_path('images/profile.png')))
-                            <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                                <img src="{{ asset('images/profile.png') }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover">
+                                <img src="{{ $profileImg }}" alt="Md. Nahid Hasan" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-64 h-64 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center\'><i class=\'fas fa-user text-8xl opacity-50\'></i></div>';">
                             </div>
                         @else
-                            <div class="w-64 h-64 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <div class="w-64 h-64 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center relative">
                                 <i class="fas fa-user text-8xl opacity-50"></i>
+                                <div class="absolute bottom-0 right-0 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                    <a href="/upload-profile" class="hover:underline">Upload Photo</a>
+                                </div>
                             </div>
                         @endif
                     </div>
@@ -103,17 +125,22 @@
                 
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="md:col-span-2">
-                        @if($about && $about->profile_image)
+                        @php
+                            $aboutProfileImg = null;
+                            $imgPath = public_path('images/profile.jpg');
+                            $imgPathPng = public_path('images/profile.png');
+                            
+                            if (file_exists($imgPath)) {
+                                $aboutProfileImg = asset('images/profile.jpg');
+                            } elseif (file_exists($imgPathPng)) {
+                                $aboutProfileImg = asset('images/profile.png');
+                            } elseif ($about && $about->profile_image) {
+                                $aboutProfileImg = asset('storage/' . $about->profile_image);
+                            }
+                        @endphp
+                        @if($aboutProfileImg)
                             <div class="mb-8">
-                                <img src="{{ asset('storage/' . $about->profile_image) }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
-                            </div>
-                        @elseif(file_exists(public_path('images/profile.jpg')))
-                            <div class="mb-8">
-                                <img src="{{ asset('images/profile.jpg') }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
-                            </div>
-                        @elseif(file_exists(public_path('images/profile.png')))
-                            <div class="mb-8">
-                                <img src="{{ asset('images/profile.png') }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0">
+                                <img src="{{ $aboutProfileImg }}" alt="Md. Nahid Hasan" class="w-48 h-48 rounded-full object-cover border-4 border-blue-600 shadow-lg mx-auto md:mx-0" onerror="this.style.display='none';">
                             </div>
                         @endif
                         <p class="text-lg text-gray-700 leading-relaxed mb-6">{{ $about->bio ?? 'Full-stack developer passionate about creating beautiful web applications.' }}</p>
@@ -126,9 +153,18 @@
                             <div class="bg-purple-50 p-6 rounded-lg">
                                 <i class="fas fa-envelope text-3xl text-purple-600 mb-3"></i>
                                 <h4 class="font-semibold text-gray-900">Email</h4>
-                                <p class="text-gray-600"><a href="mailto:{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}" class="text-purple-600 hover:underline">{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}</a></p>
+                                <p class="text-gray-600"><a href="mailto:{{ $about->email ?? 'nahid0192604@gmail.com' }}" class="text-purple-600 hover:underline">{{ $about->email ?? 'nahid0192604@gmail.com' }}</a></p>
                             </div>
                         </div>
+                        @if($about && $about->phone)
+                        <div class="mt-6">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <i class="fas fa-phone text-3xl text-green-600 mb-3"></i>
+                                <h4 class="font-semibold text-gray-900">Phone</h4>
+                                <p class="text-gray-600"><a href="tel:{{ $about->phone }}" class="text-green-600 hover:underline">{{ $about->phone }}</a></p>
+                            </div>
+                        </div>
+                        @endif
                         <div class="mt-8">
                             <h4 class="font-semibold text-gray-900 mb-4">Connect With Me</h4>
                             <div class="flex gap-4">
@@ -238,7 +274,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Email</h4>
-                                    <p class="text-gray-600"><a href="mailto:hello@nahid.dev" class="text-blue-600 hover:underline">hello@nahid.dev</a></p>
+                                    <p class="text-gray-600"><a href="mailto:{{ $about->email ?? 'nahid0192604@gmail.com' }}" class="text-blue-600 hover:underline">{{ $about->email ?? 'nahid0192604@gmail.com' }}</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -247,7 +283,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Phone</h4>
-                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-gray-600"><a href="tel:{{ $about->phone ?? '01926041175' }}" class="hover:underline">{{ $about->phone ?? '01926041175' }}</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -256,7 +292,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Location</h4>
-                                    <p class="text-gray-600">San Francisco, USA</p>
+                                    <p class="text-gray-600">{{ $about->location ?? 'Dhaka, Bangladesh' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -388,7 +424,10 @@
                     </div>
                     <div>
                         <h4 class="font-semibold mb-4">Contact</h4>
-                        <p class="text-gray-400">{{ $about->email ?? 'nahid.cse@diu.edu.bd' }}</p>
+                        <p class="text-gray-400">{{ $about->email ?? 'nahid0192604@gmail.com' }}</p>
+                        @if($about && $about->phone)
+                        <p class="text-gray-400">{{ $about->phone }}</p>
+                        @endif
                         <p class="text-gray-400">{{ $about->location ?? 'Dhaka, Bangladesh' }}</p>
                     </div>
                 </div>

@@ -1,0 +1,84 @@
+===========================================
+HOW TO ADD YOUR PROFILE PICTURE
+===========================================
+
+METHOD 1: UPLOAD THROUGH BROWSER (EASIEST!)
+-------------------------------------------
+1. Make sure your Laravel server is running:
+   - Open terminal/command prompt
+   - Go to: C:\Users\nahid\Documents\Nahid-portfolio
+   - Run: php artisan serve
+
+2. Open your web browser
+
+3. Go to this URL:
+   http://127.0.0.1:8000/upload-profile
+
+4. On the upload page:
+   - Click "Choose File" button
+   - Select your profile picture from your computer
+   - You'll see a preview
+   - Click "Upload Profile Picture" button
+   - Wait for success message
+
+5. Go back to your portfolio:
+   http://127.0.0.1:8000
+
+6. Refresh the page (press F5 or Ctrl+R)
+
+Your picture will appear!
+
+
+METHOD 2: MANUAL COPY (IF UPLOAD DOESN'T WORK)
+------------------------------------------------
+1. Find your profile picture file on your computer
+   (Look in: Downloads, Pictures, Desktop, etc.)
+
+2. Copy the image file (Right-click > Copy)
+
+3. Open File Explorer and go to:
+   C:\Users\nahid\Documents\Nahid-portfolio\public\images\
+
+4. Paste the file there (Right-click > Paste)
+
+5. Right-click on the file and select "Rename"
+
+6. Rename it to exactly: profile.jpg
+   (If it's a PNG file, rename to: profile.png)
+
+7. Go to your portfolio in browser:
+   http://127.0.0.1:8000
+
+8. Refresh the page (press F5 or Ctrl+R)
+
+
+METHOD 3: DRAG AND DROP
+------------------------
+1. Open File Explorer
+
+2. Navigate to your profile picture file
+
+3. Open another File Explorer window
+
+4. Navigate to:
+   C:\Users\nahid\Documents\Nahid-portfolio\public\images\
+
+5. Drag your profile picture from first window to second window
+
+6. Rename the file to: profile.jpg (or profile.png)
+
+7. Refresh your portfolio page
+
+
+TROUBLESHOOTING
+---------------
+- If image doesn't show: Make sure file is named exactly "profile.jpg" or "profile.png"
+- If upload page doesn't work: Check that server is running (php artisan serve)
+- File formats supported: JPG, JPEG, PNG
+- Maximum file size: 2MB
+
+===========================================
+The images folder should now be open in File Explorer!
+Just copy your picture there and rename it to profile.jpg
+===========================================
+
