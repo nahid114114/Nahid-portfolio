@@ -334,66 +334,41 @@
                 <h3 class="text-4xl font-bold text-gray-900 mb-4">Education</h3>
                 <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mb-12"></div>
                 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg card-hover animate-fade-in">
+                @if($educations && $educations->count() > 0)
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($educations as $edu)
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg card-hover animate-fade-in border border-gray-200">
                         <div class="flex items-start gap-4">
-                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-graduation-cap text-2xl text-white"></i>
                             </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-900">Bachelor's Degree</h4>
-                                <p class="text-blue-600 font-semibold">Computer Science</p>
-                                <p class="text-gray-600 mt-2">University of California</p>
-                                <p class="text-sm text-gray-500 mt-1">Graduated: May 2020</p>
-                                <p class="text-gray-700 mt-4">GPA: 3.8/4.0 - Summa Cum Laude</p>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900">{{ $edu->degree }}</h4>
+                                <p class="text-blue-600 font-semibold mt-1">{{ $edu->institution_name }}</p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    {{ \Carbon\Carbon::parse($edu->start_date)->format('M Y') }} - 
+                                    @if($edu->end_date)
+                                        {{ \Carbon\Carbon::parse($edu->end_date)->format('M Y') }}
+                                    @else
+                                        Present
+                                    @endif
+                                </p>
+                                @if($edu->description)
+                                <p class="text-gray-600 mt-3 text-sm">{{ $edu->description }}</p>
+                                @endif
+                                @if($edu->end_date === null)
+                                <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Ongoing</span>
+                                @else
+                                <span class="inline-block mt-3 px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">Completed</span>
+                                @endif
                             </div>
                         </div>
                     </div>
-
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg card-hover animate-fade-in">
-                        <div class="flex items-start gap-4">
-                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-certificate text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-900">Professional Certifications</h4>
-                                <p class="text-purple-600 font-semibold">AWS Certified Solutions Architect</p>
-                                <p class="text-gray-600 mt-2">Google Cloud Professional Developer</p>
-                                <p class="text-sm text-gray-500 mt-4">Certified: 2023-2025</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-
-                <div class="mt-12 bg-gray-50 p-8 rounded-lg">
-                    <h4 class="text-xl font-bold text-gray-900 mb-6">Coursework & Specializations</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">Data Structures & Algorithms</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">Web Development</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">Database Design</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">Machine Learning</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">Cloud Computing</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-green-500"></i>
-                            <span class="text-gray-700">DevOps & Deployment</span>
-                        </div>
-                    </div>
-                </div>
+                @else
+                <p class="text-gray-600">No education information available yet.</p>
+                @endif
             </div>
         </section>
 
